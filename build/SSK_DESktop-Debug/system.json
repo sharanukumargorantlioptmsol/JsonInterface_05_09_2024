@@ -1,0 +1,20 @@
+{
+    "Battery-Health_Packet_Every_Seconds": 120,
+    "Battery_Temperature_Session_Charge_Cut_Off": 45,
+    "Battery_Temperature_Start_Charge_Cut_Off": 50,
+    "DNS/IP": "192.168.1.1",
+    "Delta_SOC%_Restricted_For_Multiple_Battery_Swap/Pick": 5,
+    "Heart-Beat_Packet_Every_Seconds": 30,
+    "Max_Charger_Current": "[10-19]",
+    "Max_Charger_Voltage": "[10-19]",
+    "Max_SOC%_Available_For_Pick/Swap": 80,
+    "PORT": 8080,
+    "Reserved_1-5": "Reserved",
+    "SYSTEM_MODE": "Normal",
+    "Slot_Count": 0,
+    "Swap_Session-Packet_Every_Seconds": 180,
+    "System-Health_Packet_Every_Seconds": 60,
+    "WIFI_ACCESS-POINT_NAME": "MyAccessPoint",
+    "WIFI_ACCESS-POINT_PASSWORD": "password123",
+    "WIFI_SSID": "MyWifi"
+}

@@ -22,7 +22,7 @@ struct SystemData {
     int SystemHealthPacketEverySeconds;
     int BatteryHealthPacketEverySeconds;
     int SwapSessionPacketEverySeconds;
-    QString AlertEventPacketImmediate;
+    //QString SwapSessionPacketEverySeconds;
     QString Reserved15;
 
 };

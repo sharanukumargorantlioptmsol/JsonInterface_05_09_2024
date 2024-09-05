@@ -42,8 +42,35 @@ int main(int argc, char *argv[]) {
     qDebug() << "SystemHealthPacketEverySeconds:" << sysdata.SystemHealthPacketEverySeconds;
     qDebug() << "BatteryHealthPacketEverySeconds:" << sysdata.BatteryHealthPacketEverySeconds;
     qDebug() << "SwapSessionPacketEverySeconds:" << sysdata.SwapSessionPacketEverySeconds;
-    qDebug() << "AlertEventPacketImmediate:" << sysdata.AlertEventPacketImmediate;
+   // qDebug() << "AlertEventPacketImmediate:" << sysdata.AlertEventPacketImmediate;
     qDebug() << "Reserved15:" << sysdata.Reserved15;
+
+    //write json data to file
+    // Create and populate SystemData struct
+    //SystemData data;
+
+    sysdata.SlotCount = 100;
+    sysdata.MaxChargerCurrent = "[10-19]";
+    sysdata.MaxChargerVoltage = "[10-19]";
+    sysdata.BatteryTemperatureSessionChargeCutOff = 45;
+    sysdata.BatteryTemperatureStartChargeCutOff = 50;
+    sysdata.DeltaSOCRestrictedForMultipleBatterySwapPick = 5;
+    sysdata.MaxSOCAvailableForPickSwap = 80;
+    sysdata.DNSIP = "192.168.1.1";
+    sysdata.PORT = 8080;
+    sysdata.WIFI_SSID = "MyWifi";
+    sysdata.WIFIACCESSPOINTNAME = "MyAccessPoint";
+    sysdata.WIFIACCESSPOINTPASSWORD = "password123";
+    sysdata.SYSTEMMODE = "Normal";
+    sysdata.HeartBeatPacketEverySeconds = 30;
+    sysdata.SystemHealthPacketEverySeconds = 60;
+    sysdata.BatteryHealthPacketEverySeconds = 120;
+    sysdata.SwapSessionPacketEverySeconds = 180;
+   // sysdata.SwapSessionPacketEverySeconds = "Yes";
+    sysdata.Reserved15 = "Reserved";
+
+    QString filePath = "C:/Users/Admin/Desktop/Work@Optm_Files/jsonfileparsing_output.json";  // Ensure this path is valid and writable
+    JsonParser::writeSystemDataToFile(sysdata, filePath);
 
     return a.exec();
 }

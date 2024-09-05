@@ -50,7 +50,7 @@ SystemData JsonParser::getSystemData(const QString &filePath)
 
     sysdata.SwapSessionPacketEverySeconds=system["Swap_Session-Packet_Every_Seconds"].toInt();
 
-    sysdata.AlertEventPacketImmediate=system["Alert_Event_Packet_Immediate"].toString();
+    //sysdata.AlertEventPacketImmediate=system["Alert_Event_Packet_Immediate"].toString();
 
     sysdata.Reserved15=system["Reserved_1-5"].toString();
 
@@ -95,3 +95,71 @@ QJsonObject JsonParser::loadJsonSystemData(const QString &filePath) {         //
 
     return document.object();
 }
+QJsonObject JsonParser::systemDataToJsonObject(const SystemData &data)
+{
+        QJsonObject jsonObject;
+        jsonObject["Slot_Count"] = data.SlotCount;
+        jsonObject["Max_Charger_Current"] = data.MaxChargerCurrent;
+        jsonObject["Max_Charger_Voltage"] = data.MaxChargerVoltage;
+        jsonObject["Battery_Temperature_Session_Charge_Cut_Off"] = data.BatteryTemperatureSessionChargeCutOff;
+        jsonObject["Battery_Temperature_Start_Charge_Cut_Off"] = data.BatteryTemperatureStartChargeCutOff;
+        jsonObject["Delta_SOC%_Restricted_For_Multiple_Battery_Swap/Pick"] = data.DeltaSOCRestrictedForMultipleBatterySwapPick;
+        jsonObject["Max_SOC%_Available_For_Pick/Swap"] = data.MaxSOCAvailableForPickSwap;
+        jsonObject["DNS/IP"] = data.DNSIP;
+        jsonObject["PORT"] = data.PORT;
+        jsonObject["WIFI_SSID"] = data.WIFI_SSID;
+        jsonObject["WIFI_ACCESS-POINT_NAME"] = data.WIFIACCESSPOINTNAME;
+        jsonObject["WIFI_ACCESS-POINT_PASSWORD"] = data.WIFIACCESSPOINTPASSWORD;
+        jsonObject["SYSTEM_MODE"] = data.SYSTEMMODE;
+        jsonObject["Heart-Beat_Packet_Every_Seconds"] = data.HeartBeatPacketEverySeconds;
+        jsonObject["System-Health_Packet_Every_Seconds"] = data.SystemHealthPacketEverySeconds;
+        jsonObject["Battery-Health_Packet_Every_Seconds"] = data.BatteryHealthPacketEverySeconds;
+        jsonObject["Swap_Session-Packet_Every_Seconds"] = data.SwapSessionPacketEverySeconds;
+      //  jsonObject["Alert_Event_Packet_Immediate"] = data.AlertEventPacketImmediate;
+        jsonObject["Reserved_1-5"] = data.Reserved15;
+        return jsonObject;
+}
+SystemData JsonParser::jsonObjectToSystemData(const QJsonObject &jsonObject)
+{
+    SystemData data;
+    data.SlotCount = jsonObject["Slot_Count"].toInt();
+    data.MaxChargerCurrent = jsonObject["Max_Charger_Current"].toString();
+    data.MaxChargerVoltage = jsonObject["Max_Charger_Voltage"].toString();
+    data.BatteryTemperatureSessionChargeCutOff = jsonObject["Battery_Temperature_Session_Charge_Cut_Off"].toInt();
+    data.BatteryTemperatureStartChargeCutOff = jsonObject["Battery_Temperature_Start_Charge_Cut_Off"].toInt();
+    data.DeltaSOCRestrictedForMultipleBatterySwapPick = jsonObject["Delta_SOC%_Restricted_For_Multiple_Battery_Swap/Pick"].toInt();
+    data.MaxSOCAvailableForPickSwap = jsonObject["Max_SOC%_Available_For_Pick/Swap"].toInt();
+    data.DNSIP = jsonObject["DNS/IP"].toString();
+    data.PORT = jsonObject["PORT"].toInt();
+    data.WIFI_SSID = jsonObject["WIFI_SSID"].toString();
+    data.WIFIACCESSPOINTNAME = jsonObject["WIFI_ACCESS-POINT_NAME"].toString();
+    data.WIFIACCESSPOINTPASSWORD = jsonObject["WIFI_ACCESS-POINT_PASSWORD"].toString();
+    data.SYSTEMMODE = jsonObject["SYSTEM_MODE"].toString();
+    data.HeartBeatPacketEverySeconds = jsonObject["Heart-Beat_Packet_Every_Seconds"].toInt();
+    data.SystemHealthPacketEverySeconds = jsonObject["System-Health_Packet_Every_Seconds"].toInt();
+    data.BatteryHealthPacketEverySeconds = jsonObject["Battery-Health_Packet_Every_Seconds"].toInt();
+    data.SwapSessionPacketEverySeconds = jsonObject["Swap_Session-Packet_Every_Seconds"].toInt();
+   // data.AlertEventPacketImmediate = jsonObject["Alert_Event_Packet_Immediate"].toString();
+    data.Reserved15 = jsonObject["Reserved_1-5"].toString();
+    return data;
+
+}
+
+void JsonParser::writeSystemDataToFile(const SystemData &data, const QString &filePath)
+{
+    qDebug()<<"Hi";
+    QJsonObject jsonObject = systemDataToJsonObject(data);
+    QJsonDocument jsonDoc(jsonObject);
+    QFile jsonFile(filePath);
+
+    if (!jsonFile.open(QIODevice::WriteOnly)) {
+        qWarning("Couldn't open the file.");
+        return;
+    }
+
+    jsonFile.write(jsonDoc.toJson());
+    jsonFile.close();
+}
+
+
+

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 14.0.1, 2024-09-05T12:10:13. -->
+<!-- Written by QtCreator 14.0.1, 2024-09-05T15:54:32. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -243,10 +243,10 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph &quot;dwarf,4096&quot; -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/SSK/JSonInterfaceClass_05_09_2024/JSonInterfaceClass_05_09_2024.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/SSK/JSonInterfaceClass_05_09_2024/JSonInterfaceClass_05_09_2024.pro</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">JSonInterfaceClass_05_09_20242</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Admin/Desktop/Repository/JSonInterfaceClass_05_09_2024/JSonInterfaceClass_05_09_2024.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Admin/Desktop/Repository/JSonInterfaceClass_05_09_2024/JSonInterfaceClass_05_09_2024.pro</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
